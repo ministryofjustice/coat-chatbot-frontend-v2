@@ -32,7 +32,7 @@ jobs:
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
         with:
-          args: --severity-threshold=high --fail-on=upgradable --file=requirements.txt --sarif-file-output=snyk-python.sarif
+          args: --severity-threshold=high --fail-on=upgradable --sarif-file-output=snyk-python.sarif
 
       - name: Upload SARIF
         if: always() && steps.scan.outcome != 'skipped'

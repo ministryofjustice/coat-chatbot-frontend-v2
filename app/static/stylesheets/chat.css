@@ -1,0 +1,33 @@
+.chat-loading-message {
+    background-color: #ffffff;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    max-width: 70%;
+    white-space: pre-wrap;
+
+    align-self: flex-start;
+}
+
+.user-question {
+    background-color: #a9e8aa;
+    border: 1px solid #000;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    max-width: 70%;
+    min-width: 30%;
+    white-space: pre-wrap;
+
+    align-self: flex-end;
+}
+
+.moj-messages-container {
+    max-height: 600px;
+    min-height: 600px;
+    overflow-y: auto;
+}
+
+.moj-message-list {
+    overflow: hidden;
+}

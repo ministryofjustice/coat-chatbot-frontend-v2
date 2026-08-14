@@ -11,7 +11,7 @@ RUN apk add --no-cache --no-progress \
   && apk upgrade --no-cache --available
 
 # Install pipenv
-RUN pip install --no-cache-dir pipenv
+RUN pip install --no-cache-dir pipenv==2026.6.2
 
 # Create user and group
 RUN addgroup -S appgroup && adduser -S appuser -G appgroup -u 1051

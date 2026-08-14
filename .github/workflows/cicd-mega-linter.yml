@@ -38,7 +38,6 @@ jobs:
           # All available variables are described in documentation
           # https://megalinter.io/latest/configuration/
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          FILTER_REGEX_EXCLUDE: 'app/static/javascripts/govuk-frontend\.min\.js'
       # Upload MegaLinter artifacts
       - name: Archive production artifacts
         if: success() || failure()

@@ -6,16 +6,16 @@
   <title>Ministry of Justice - CostChat</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="blue">
-  <link rel="icon" sizes="48x48" href="/assets/rebrand/images/favicon.ico">
-  <link rel="icon" sizes="any" href="/assets/rebrand/images/favicon.svg" type="image/svg+xml">
-  <link rel="mask-icon" href="/assets/rebrand/images/govuk-icon-mask.svg" color="blue">
-  <link rel="apple-touch-icon" href="/assets/rebrand/images/govuk-icon-180.png">
-  <link rel="manifest" href="/assets/rebrand/manifest.json">
-  <link rel="stylesheet" href="stylesheets/govuk-frontend.min.css">
-  <link rel="stylesheet" href="stylesheets/moj-frontend.min.css"/>
-  <link rel="stylesheet" href="stylesheets/particles.css"/>
-  <link rel="stylesheet" href="stylesheets/chat.css"/>
-  <meta property="og:image" content="https://super-telegram-9qrm9mp.pages.github.io/images/govuk-opengraph-image.png">
+  <link rel="icon" sizes="48x48" href="{{ url_for('static', filename='assets/rebrand/images/favicon.ico') }}">
+  <link rel="icon" sizes="any" href="{{ url_for('static', filename='assets/rebrand/images/favicon.ico') }}" type="image/svg+xml">
+  <link rel="mask-icon" href="{{ url_for('static', filename='assets/rebrand/images/govuk-icon-mask.svg') }}" color="blue">
+  <link rel="apple-touch-icon" href="{{ url_for('static', filename='assets/rebrand/images/govuk-icon-180.png') }}">
+  <link rel="manifest" href="{{ url_for('static', filename='assets/rebrand/manifest.json') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/govuk-frontend.min.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/moj-frontend.min.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/particles.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/chat.css') }}">
+  <meta property="og:image" content="https://application.cloud-platform.service.justice.gov.uk/images/govuk-opengraph-image.png">
 </head>
 
 <body class="govuk-template__body app-body-class" data-test="My value" data-other="report:details">
@@ -144,13 +144,16 @@
       </div>
     </div>
   </footer>
-  <script src="/javascripts/particles.js"></script>
-  <script type="module" src="/javascripts/govuk-frontend.min.js"></script>
+  <script src="{{ url_for('static', filename='javascripts/particles.js') }}"></script>
+  <script src="{{ url_for('static', filename='javascripts/govuk-frontend.min.js') }}"></script>
   <script type="module">
-    import { initAll } from '/javascripts/govuk-frontend.min.js'
-    import { add_submit_user_question_button_event_listener } from '/javascripts/factories/event_listener_factory.js'
-    import { create_html_string_message, create_html_string_date } from '/javascripts/factories/html_string_factory.js'
-    import { create_chat_message_from_html_string } from '/javascripts/factories/element_factory.js'
+    import { initAll } from "{{ url_for('static', filename='javascripts/govuk-frontend.min.js') }}"
+    import { add_submit_user_question_button_event_listener } from "{{ url_for('static', filename='javascripts/factories/event_listener_factory.js') }}"
+    import { 
+      create_html_string_message, 
+      create_html_string_date 
+    } from "{{ url_for('static', filename='javascripts/factories/html_string_factory.js') }}"
+    import { create_chat_message_from_html_string } from "{{ url_for('static', filename='javascripts/factories/element_factory.js') }}"
 
     initAll();
 

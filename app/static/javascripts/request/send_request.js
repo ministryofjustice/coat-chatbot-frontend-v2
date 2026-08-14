@@ -1,8 +1,8 @@
-import { api_key, api_id } from "/javascripts/config.js";
+import { api_key, api_id } from "../config.js";
 import { 
     chat_response_controller,
     error_response_controller
-} from "/javascripts/controllers/chat_response_controller.js";
+} from "../controllers/chat_response_controller.js";
 
 export function send_request(user_question) {
     const api_endpoint = `https://${api_id}.execute-api.eu-west-2.amazonaws.com/production/send-request`;

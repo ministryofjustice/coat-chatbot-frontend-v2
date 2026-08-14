@@ -1,11 +1,11 @@
-import { create_chat_message_from_html_string } from "/javascripts/factories/element_factory.js";
-import { delete_element } from "/javascripts/animations/loading_animation.js";
+import { create_chat_message_from_html_string } from "../factories/element_factory.js";
+import { delete_element } from "../animations/loading_animation.js";
 import { 
     create_html_string_paragraph, 
     create_html_string_table,
     create_html_string_message
 } 
-from "/javascripts/factories/html_string_factory.js";
+from "../factories/html_string_factory.js";
 
 export function chat_response_controller(data) {
     delete_element("chat-loading-message");

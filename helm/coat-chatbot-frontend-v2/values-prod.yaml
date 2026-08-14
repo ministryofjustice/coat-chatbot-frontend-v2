@@ -1,6 +1,6 @@
 app:
   ingress:
-    host: "application.service.justice.gov.uk" # This should be changed as appropriate
+    host: "coat-chatbot-frontend-prod.cloud-platform.service.justice.gov.uk"
 
   deployment:
     replicaCount: 3

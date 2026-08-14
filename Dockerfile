@@ -1,6 +1,6 @@
 FROM python:3.12.0-alpine3.18
 
-LABEL maintainer="operations-engineering <operations-engineering@digital.justice.gov.uk>"
+LABEL maintainer="cloud-optimisation-and-accountability <CloudOptimisationandAccountabilityTeam@justice.gov.uk>"
 
 # Install system dependencies
 RUN apk add --no-cache --no-progress \
@@ -11,16 +11,16 @@ RUN apk add --no-cache --no-progress \
   && apk upgrade --no-cache --available
 
 # Install pipenv
-RUN pip install --no-cache-dir pipenv
+RUN pip install --no-cache-dir pipenv==2026.6.2
 
 # Create user and group
 RUN addgroup -S appgroup && adduser -S appuser -G appgroup -u 1051
 
 # Set working directory
-WORKDIR /home/operations-engineering-application
+WORKDIR /home/coat-chatbot-frontend-v2
 
 # Change ownership of the working directory
-RUN chown -R appuser:appgroup /home/operations-engineering-application
+RUN chown -R appuser:appgroup /home/coat-chatbot-frontend-v2
 
 # Switch to non-root user
 USER 1051

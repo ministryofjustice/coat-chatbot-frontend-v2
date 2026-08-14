@@ -62,14 +62,14 @@ jobs:
 
       - name: Deploy helm chart to operations-engineering-join-github-prod
         run: |
-          helm upgrade application \
-            helm/application \
+          helm upgrade coat-chatbot-frontend-v2 \
+            helm/coat-chatbot-frontend-v2 \
             --install \
             --atomic \
             --force \
             --wait \
             --namespace ${KUBE_NAMESPACE} \
-            --values=helm/application/values-prod.yaml \
+            --values=helm/coat-chatbot-frontend-v2/values-prod.yaml \
             --set app.deployment.env.APP_SECRET_KEY=${FLASK_APP_SECRET} \
             --set app.deployment.env.SENTRY_DSN_KEY=${SENTRY_DSN_KEY} \
             --set app.deployment.image.repository=${ECR_REGISTRY}/${ECR_REPOSITORY} \

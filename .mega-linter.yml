@@ -30,4 +30,3 @@ VALIDATE_ALL_CODEBASE: false
 LOG_LEVEL: INFO
 MARKDOWN_MARKDOWN_LINK_CHECK_ARGUMENTS: "-q"
 
-FILTER_REGEX_EXCLUDE: 'app\/static\/javascripts\/govuk-frontend\.min\.js'

@@ -1,6 +1,8 @@
 import os
 from types import SimpleNamespace
 
+def __get_bool_env_var(name: str) -> bool:
+    return (os.getenv(name) or "").strip().lower() in ("1", "true", "yes", "on")
 
 def __get_env_var(name: str) -> str | None:
     return os.getenv(name)
@@ -14,4 +16,10 @@ app_config = SimpleNamespace(
     sentry=SimpleNamespace(
         dsn_key=__get_env_var("SENTRY_DSN_KEY"), environment=__get_env_var("SENTRY_ENV")
     ),
+    auth_disabled=__get_bool_env_var("AUTH_DISABLED"),
+    auth0=SimpleNamespace(
+        domain=__get_env_var("AUTH0_DOMAIN"),
+        client_id=__get_env_var("AUTH0_CLIENT_ID"),
+        client_secret=__get_env_var("AUTH0_CLIENT_SECRET"),
+    )
 )

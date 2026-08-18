@@ -1,8 +1,11 @@
-from flask import Blueprint, current_app, redirect, render_template, request
+# pylint: disable=C0411
+from flask import Blueprint, render_template
+from app.main.middleware.auth import requires_auth
 
 main = Blueprint("main", __name__)
 
 
 @main.route("/")
+@requires_auth
 def index():
     return render_template("pages/main.html")

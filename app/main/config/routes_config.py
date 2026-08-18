@@ -1,3 +1,4 @@
+# pylint: disable=C0411
 from app.main.routes.main import main
 from app.main.routes.robots import robot_route
 from app.main.routes.auth import auth_route

@@ -7,6 +7,7 @@ from flask import Flask, redirect
 
 logger = logging.getLogger(__name__)
 
+
 # pylint: disable=C0103
 class Auth0_Service:
     def __init__(

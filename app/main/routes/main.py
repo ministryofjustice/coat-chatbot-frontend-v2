@@ -1,4 +1,4 @@
-from flask import Blueprint, current_app, redirect, render_template, request
+from flask import Blueprint, render_template
 from app.main.middleware.auth import requires_auth
 
 main = Blueprint("main", __name__)

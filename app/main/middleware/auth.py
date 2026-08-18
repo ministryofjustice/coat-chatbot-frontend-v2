@@ -5,8 +5,7 @@ from time import time
 from flask import (
     redirect,
     session,
-    request,
-    render_template
+    request
 )
 
 from app.main.config.app_config import app_config

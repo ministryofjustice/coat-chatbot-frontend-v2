@@ -3,7 +3,6 @@ resource "auth0_connection" "github" {
   is_domain_connection = false
   metadata             = {}
   name                 = "github"
-  realms               = ["github"]
   show_as_button       = null
   strategy             = "github"
   authentication {

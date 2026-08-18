@@ -65,7 +65,6 @@ resource "auth0_client_grant" "auth0_actions_management_client_grant" {
   allow_all_scopes            = false
   allow_any_organization      = false
   audience                    = "https://${var.auth0_domain}/api/v2/"
-  authorization_details_types = []
   client_id                   = auth0_client.auth0_actions_management_client.client_id
   default_for                 = null
   organization_usage          = null

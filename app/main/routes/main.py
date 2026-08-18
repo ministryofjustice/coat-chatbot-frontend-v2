@@ -1,3 +1,4 @@
+# pylint: disable=C0411
 from flask import Blueprint, render_template
 from app.main.middleware.auth import requires_auth
 

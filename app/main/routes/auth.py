@@ -1,3 +1,4 @@
+# pylint: disable=C0411
 import logging
 
 from flask import Blueprint, current_app, redirect, session, url_for

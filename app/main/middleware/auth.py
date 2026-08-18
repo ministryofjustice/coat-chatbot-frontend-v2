@@ -1,3 +1,4 @@
+# pylint: disable=C0411
 import logging
 from functools import wraps
 from time import time

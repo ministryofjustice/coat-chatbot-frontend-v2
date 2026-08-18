@@ -89,7 +89,7 @@ jobs:
             ${{ steps.plan.outputs.stdout || steps.plan.outputs.stderr }}
             ```
   terraform-apply:
-    name: "Auth0 Terraform - Apply"
+    name: "Auth0 Terraform: Apply"
     runs-on: ubuntu-latest
     defaults:
       run:

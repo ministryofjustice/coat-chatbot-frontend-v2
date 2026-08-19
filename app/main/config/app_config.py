@@ -13,6 +13,7 @@ app_config = SimpleNamespace(
     flask=SimpleNamespace(
         app_secret_key=__get_env_var("APP_SECRET_KEY"),
     ),
+    chatbot_api_key=__get_env_var("CHATBOT_API_KEY"),
     logging_level=__get_env_var("LOGGING_LEVEL"),
     sentry=SimpleNamespace(
         dsn_key=__get_env_var("SENTRY_DSN_KEY"), environment=__get_env_var("SENTRY_ENV")

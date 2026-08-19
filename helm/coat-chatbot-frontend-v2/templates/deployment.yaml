@@ -27,7 +27,7 @@ spec:
             - name: CHATBOT_API_KEY
               value: {{ .Values.app.deployment.env.CHATBOT_API_KEY | quote }}
             - name: CHATBOT_API_ID
-              value: {{ .Values.app.deployment.env.CHATBOT_API_KEY | quote }}
+              value: {{ .Values.app.deployment.env.CHATBOT_API_ID | quote }}
             - name: FLASK_DEBUG
               value: {{ .Values.app.deployment.env.FLASK_DEBUG | quote }}
             - name: SENTRY_DSN_KEY

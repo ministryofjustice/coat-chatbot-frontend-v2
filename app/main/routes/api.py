@@ -9,7 +9,7 @@ api_route = Blueprint("api_routes", __name__)
 
 api_service = api_service(
     app_config.api.api_id,
-    app_config.api.api_key
+    app_config.api.api_key,
     app_config.flask.app_env
 )
 

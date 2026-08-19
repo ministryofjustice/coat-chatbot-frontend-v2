@@ -1,4 +1,4 @@
-from flask import escape
+from markupsafe import escape
 
 def validate_query(query):
     if not query or not isinstance(query, str):

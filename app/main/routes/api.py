@@ -1,5 +1,5 @@
 # pylint: disable=C0411
-from flask import Blueprint, current_app, request, redirect, session, url_for
+from flask import Blueprint, request
 
 from app.main.middleware.auth import requires_auth
 from app.main.config.app_config import app_config

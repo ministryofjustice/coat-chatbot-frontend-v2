@@ -14,7 +14,7 @@ class api_service:
         payload = {"user_question": query}
 
         headers = {
-            "Content-Type": "application/json", 
+            "Content-Type": "application/json",
             "x-api-key": self.api_key
         }
 

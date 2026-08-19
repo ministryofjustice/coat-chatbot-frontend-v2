@@ -23,4 +23,6 @@ def submit_query():
 
     api_response = api_service.submit_query(query)
 
+    print(f"API Response: {api_response}")
+
     return api_response

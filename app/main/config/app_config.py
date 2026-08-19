@@ -14,8 +14,8 @@ app_config = SimpleNamespace(
         app_secret_key=__get_env_var("APP_SECRET_KEY"),
     ),
     api=SimpleNamespace(
-        chatbot_api_key=__get_env_var("CHATBOT_API_KEY"),
-        chatbot_api_id=__get_env_var("CHATBOT_API_ID"),
+        api_key=__get_env_var("CHATBOT_API_KEY"),
+        api_id=__get_env_var("CHATBOT_API_ID"),
     ),
     logging_level=__get_env_var("LOGGING_LEVEL"),
     sentry=SimpleNamespace(

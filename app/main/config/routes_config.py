@@ -2,6 +2,7 @@
 from app.main.routes.main import main
 from app.main.routes.robots import robot_route
 from app.main.routes.auth import auth_route
+from app.main.routes.api import api_route
 from flask import Flask
 
 
@@ -9,3 +10,4 @@ def configure_routes(app: Flask) -> None:
     app.register_blueprint(main)
     app.register_blueprint(robot_route)
     app.register_blueprint(auth_route, url_prefix="/auth")
+    app.register_blueprint(api_route, url_prefix="/api")

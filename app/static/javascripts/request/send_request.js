@@ -5,22 +5,20 @@ import {
 } from "../controllers/chat_response_controller.js";
 
 export function send_request(user_question) {
-    const api_endpoint = `https://${api_id}.execute-api.eu-west-2.amazonaws.com/production/send-request`;
+    const api_endpoint = `${window.location.origin}/api/submit-query`;
 
     const payload = {
         user_question: user_question
     };
 
     const headers = {
-        "Content-Type": "application/json",
-        "x-api-key": api_key
+        "Content-Type": "application/json"
     }
 
     console.log(`Sending POST request to: ${api_endpoint}`);
 
     fetch(api_endpoint, {
         method: "POST",
-        mode: 'cors',
         headers: headers,
         body: JSON.stringify(payload)
     })

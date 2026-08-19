@@ -27,7 +27,7 @@ def submit_query():
     if not valid_query:
         return jsonify({"message": f"Invalid input: {query}"}), 400
 
-    api_response = api_service.submit_query(query)
+    api_response = api_service.submit_query(valid_query)
 
     print(f"API Response: {api_response}")
 

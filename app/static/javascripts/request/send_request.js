@@ -1,4 +1,3 @@
-import { api_key, api_id } from "../config.js";
 import { 
     chat_response_controller,
     error_response_controller

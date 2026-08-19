@@ -3,11 +3,11 @@ from flask import Blueprint, request
 
 from app.main.middleware.auth import requires_auth
 from app.main.config.app_config import app_config
-from app.main.services.api_service import api_service
+from app.main.services.api_service import ApiService
 
 api_route = Blueprint("api_routes", __name__)
 
-api_service = api_service(
+api_service = ApiService(
     app_config.api.api_id,
     app_config.api.api_key,
     app_config.flask.app_env

@@ -1,6 +1,7 @@
 import requests
 
-class api_service:
+# pylint: disable=R0903
+class ApiService:
     def __init__(
         self, api_id: str, api_key: str, app_env: str
     ) -> None:

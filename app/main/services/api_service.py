@@ -22,4 +22,4 @@ class api_service:
 
         response = requests.post(url, headers=headers, json=payload)
 
-        return response
+        return response.json(), response.status_code

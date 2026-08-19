@@ -1,9 +1,10 @@
 # pylint: disable=C0411
-from flask import Blueprint, request
+from flask import Blueprint, request, jsonify
 
 from app.main.middleware.auth import requires_auth
 from app.main.config.app_config import app_config
 from app.main.services.api_service import ApiService
+from app.main.validators.validate_query import validate_query
 
 api_route = Blueprint("api_routes", __name__)
 
@@ -20,6 +21,11 @@ def submit_query():
     payload = request.get_json(silent=True)
 
     query = payload.get("user_question")
+
+    valid_query = validate_query(query)
+
+    if not valid_query:
+        return jsonify({"message": f"Invalid input: {query}"}), 400
 
     api_response = api_service.submit_query(query)
 

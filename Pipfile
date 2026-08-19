@@ -20,6 +20,7 @@ sentry-sdk = "==2.8.0"
 freezegun = "==1.5.1"
 setuptools = "==83.0.0"
 authlib= "==1.6.12"
+markupsafe= "==3.0.3"
 
 [dev-packages]
 coverage = "==7.4.4"

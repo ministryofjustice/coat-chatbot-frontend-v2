@@ -7,3 +7,4 @@ app:
     env:
       SENTRY_ENV: "development"
       FLASK_DEBUG: true
+      APP_ENV: "development"

@@ -4,13 +4,13 @@ import logging
 from flask import Blueprint, current_app, redirect, session, url_for
 
 from app.main.config.app_config import app_config
-from app.main.services.auth0_service import Auth0_Service
+from app.main.services.auth0_service import Auth0Service
 
 logger = logging.getLogger(__name__)
 
 auth_route = Blueprint("auth_routes", __name__)
 
-auth0_service = Auth0_Service(
+auth0_service = Auth0Service(
     current_app,
     app_config.auth0.client_id,
     app_config.auth0.client_secret,

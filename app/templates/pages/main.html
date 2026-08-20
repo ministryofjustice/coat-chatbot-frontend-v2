@@ -165,7 +165,7 @@
     create_chat_message_from_html_string(html_string_date);
     create_chat_message_from_html_string(html_string_intro_message);
 
-    particlesJS.load('particles-js', 'assets/particles.json', function() {
+    particlesJS.load('particles-js', "{{ url_for('static', filename='assets/particles.json') }}", function() {
       console.log('callback - particles.js config loaded');
     });
   </script>

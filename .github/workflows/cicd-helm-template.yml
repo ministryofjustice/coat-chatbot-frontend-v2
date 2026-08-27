@@ -42,7 +42,7 @@ jobs:
           CHART_OUTPUT=$(helm template coat-chatbot-frontend-v2 \
             helm/coat-chatbot-frontend-v2 \
             --namespace ${{ matrix.environment == 'production' && '${PROD_KUBE_NAMESPACE}' || '${DEV_KUBE_NAMESPACE}' }} \
-            --values=helm/moj-copilot-ai-credits-dashboard/${{ matrix.environment == 'production' && 'values-prod.yaml' || 'values-dev.yaml' }} \
+            --values=helm/coat-chatbot-frontend-v2/${{ matrix.environment == 'production' && 'values-prod.yaml' || 'values-dev.yaml' }} \
             --set app.deployment.env.AUTH0_CLIENT_ID="MOCK_AUTH0_CLIENT_ID" \
             --set app.deployment.env.AUTH0_CLIENT_SECRET="MOCK_AUTH0_CLIENT_SECRET" \
             --set app.deployment.env.AUTH0_DOMAIN=${{ matrix.environment == 'production' && '${PROD_AUTH0_DOMAIN}' || '${DEV_AUTH0_DOMAIN}' }} \

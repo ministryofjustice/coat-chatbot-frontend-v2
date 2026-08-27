@@ -5,6 +5,5 @@ app:
   deployment:
     replicaCount: 1
     env:
-      SENTRY_ENV: "development"
       FLASK_DEBUG: true
       APP_ENV: "development"

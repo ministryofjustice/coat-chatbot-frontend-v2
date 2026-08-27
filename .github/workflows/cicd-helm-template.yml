@@ -69,7 +69,7 @@ jobs:
         with:
           header: helm-template-comment-${{ matrix.environment }}
           message: |
-            ## Helm chart template - moj-copilot-ai-credits-dashboard (${{ matrix.environment }})
+            ## Helm chart template - coat-chatbot-frontend-v2 (${{ matrix.environment }})
             ```
             ${{ steps.helm-template.outputs.chart_output }}
             ```

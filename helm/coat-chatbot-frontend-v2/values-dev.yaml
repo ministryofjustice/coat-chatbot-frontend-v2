@@ -1,6 +1,6 @@
 app:
   ingress:
-    host: "coat-chatbot-frontend-dev.cloud-platform.service.justice.gov.ukk"
+    host: "coat-chatbot-frontend-dev.cloud-platform.service.justice.gov.uk"
 
   deployment:
     replicaCount: 1

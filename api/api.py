@@ -5,12 +5,9 @@ from flask import Flask
 
 from api.main.config.app_config import app_config
 from api.main.config.cors_config import configure_cors
-from api.main.config.error_handlers_config import configure_error_handlers
-from api.main.config.jinja_config import configure_jinja
 from api.main.config.limiter_config import configure_limiter
 from api.main.config.logging_config import configure_logging
 from api.main.config.routes_config import configure_routes
-from api.main.config.sentry_config import configure_sentry
 
 logger = logging.getLogger(__name__)
 

@@ -14,7 +14,7 @@ spec:
         {{- include "application.selectorLabels" . | nindent 8 }}
     spec:
       # serviceAccountName created by the Cloud Platform environment
-      serviceAccountName: cd-serviceaccount
+      serviceAccountName: {{ .Values.app.deployment.serviceAccountName }}
       containers:
         - name: {{ .Chart.Name }}
           image: "{{ .Values.app.deployment.image.repository }}:{{ .Values.app.deployment.image.tag | default .Chart.AppVersion }}"

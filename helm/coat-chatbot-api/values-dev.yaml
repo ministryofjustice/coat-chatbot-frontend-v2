@@ -1,5 +1,6 @@
 app:
   deployment:
+    serviceAccountName: "coat-chatbot-frontend-dev-sa"
     replicaCount: 1
     env:
       FLASK_DEBUG: true

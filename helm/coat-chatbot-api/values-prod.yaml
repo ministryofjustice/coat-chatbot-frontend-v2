@@ -1,0 +1,6 @@
+app:
+  deployment:
+    replicaCount: 3
+    env:
+      FLASK_DEBUG: false
+      APP_ENV: "production"

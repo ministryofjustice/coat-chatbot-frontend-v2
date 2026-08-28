@@ -31,6 +31,10 @@ jobs:
     permissions:
       id-token: write
       contents: write
+    strategy:
+      fail-fast: false
+      matrix:
+        component: [ui, api]
     steps:
       - uses: actions/checkout@v4
 
@@ -42,13 +46,17 @@ jobs:
       - uses: aws-actions/amazon-ecr-login@062b18b96a7aff071d4dc91bc00c4c1a7945b076  # v2.0.1
         id: login-ecr
       - run: |
-          docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
-          docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
+          docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG${{ matrix.component == 'ui' && '-ui' || '-api' }} .
+          docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG${{ matrix.component == 'ui' && '-ui' || '-api' }}
 
   deploy-to-prod:
     needs: build-push
     runs-on: ubuntu-latest
     container: alpine/k8s:1.23.17
+    strategy:
+      fail-fast: false
+      matrix:
+        component: [ui, api]
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -62,7 +70,8 @@ jobs:
           kubectl config get-contexts
           kubectl config use-context ${KUBE_CLUSTER}
 
-      - name: Deploy helm chart to operations-engineering-join-github-prod
+      - name: Deploy ui helm chart to prod
+        if: matrix.component == 'ui'
         run: |
           helm upgrade coat-chatbot-frontend-v2 \
             helm/coat-chatbot-frontend-v2 \
@@ -80,3 +89,20 @@ jobs:
             --set app.deployment.env.AUTH0_DOMAIN="${AUTH0_DOMAIN}" \
             --set app.deployment.image.repository=${ECR_REGISTRY}/${ECR_REPOSITORY} \
             --set app.deployment.image.tag=${IMAGE_TAG}
+
+      - name: Deploy api helm chart to prod
+        if: matrix.component == 'api'
+        run: |
+          helm upgrade coat-chatbot-api\
+            helm/coat-chatbot-api \
+            --install \
+            --force \
+            --wait \
+            --timeout 10m \
+            --namespace ${KUBE_NAMESPACE} \
+            --values=helm/coat-chatbot-api/values-prod.yaml \
+            --set app.deployment.env.CHATBOT_API_KEY=${CHATBOT_API_KEY} \
+            --set app.deployment.env.CHATBOT_API_ID=${CHATBOT_API_ID} \
+            --set app.deployment.env.APP_SECRET_KEY=${FLASK_APP_SECRET} \
+            --set app.deployment.image.repository=${ECR_REGISTRY}/${ECR_REPOSITORY} \
+            --set app.deployment.image.tag=${IMAGE_TAG}-api

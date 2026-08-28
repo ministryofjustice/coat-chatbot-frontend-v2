@@ -4,6 +4,8 @@
 REPOSITORY_NAME ?= default-namespace
 OLD_NAME ?= application
 NEW_NAME ?= my-new-project
+SERVICE ?=
+IMAGE ?=
 
 all:
 # Run MegaLinter
@@ -16,23 +18,23 @@ flake8: venv
 
 # Build the Docker image
 build:
-	docker-compose build
+	docker compose build $(SERVICE)
 
 # Run the Docker container
 up:
-	docker-compose up -d
+	docker-compose up -d $(SERVICE)
 
 # Stop and remove the Docker container
 down:
-	docker-compose down
+	docker-compose down $(SERVICE)
 
 # View logs for the running container
 logs:
-	docker-compose logs -f app
+	docker-compose logs -f $(SERVICE)
 
 # Open a shell inside the running app container
 shell:
-	docker exec -it coat-chatbot-frontend-v2 /bin/sh
+	docker exec -it $(IMAGE) /bin/sh
 
 # Target to run the Python script with pipenv, passing the reposiotry name and environment as an argument
 # make new-namespace REPOSITORY_NAME=example-repo ENVIRONMENT=dev

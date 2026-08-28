@@ -1,9 +1,9 @@
 # pylint: disable=C0411
 from flask import Blueprint, request, jsonify
 
-from app.main.config.app_config import app_config
-from app.main.services.api_service import ApiService
-from app.main.validators.validate_query import validate_query
+from api.main.config.app_config import app_config
+from api.main.services.api_service import ApiService
+from api.main.validators.validate_query import validate_query
 
 api_route = Blueprint("api_routes", __name__)
 

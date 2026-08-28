@@ -3,14 +3,14 @@ import logging
 
 from flask import Flask
 
-from app.main.config.app_config import app_config
-from app.main.config.cors_config import configure_cors
-from app.main.config.error_handlers_config import configure_error_handlers
-from app.main.config.jinja_config import configure_jinja
-from app.main.config.limiter_config import configure_limiter
-from app.main.config.logging_config import configure_logging
-from app.main.config.routes_config import configure_routes
-from app.main.config.sentry_config import configure_sentry
+from api.main.config.app_config import app_config
+from api.main.config.cors_config import configure_cors
+from api.main.config.error_handlers_config import configure_error_handlers
+from api.main.config.jinja_config import configure_jinja
+from api.main.config.limiter_config import configure_limiter
+from api.main.config.logging_config import configure_logging
+from api.main.config.routes_config import configure_routes
+from api.main.config.sentry_config import configure_sentry
 
 logger = logging.getLogger(__name__)
 

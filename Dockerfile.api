@@ -29,7 +29,7 @@ USER 1051
 COPY --chown=apiuser:apigroup Pipfile.api Pipfile.api.lock ./
 
 # Install dependencies without --system
-RUN pipenv install --deploy --ignore-pipfile
+RUN PIPENV_PIPFILE=Pipfile.api pipenv install --deploy --ignore-pipfile
 
 # Copy application code
 COPY --chown=apiuser:apigroup api api

@@ -1,5 +1,5 @@
 # pylint: disable=C0411
-from app.main.routes.api import api_route
+from api.main.routes.api import api_route
 from flask import Flask
 
 

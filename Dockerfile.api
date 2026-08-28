@@ -28,15 +28,16 @@ USER 1051
 # Copy Pipfile and Pipfile.lock
 COPY --chown=apiuser:apigroup Pipfile.api Pipfile.api.lock ./
 
-# Install dependencies without --system
-RUN PIPENV_PIPFILE=Pipfile.api pipenv install --deploy --ignore-pipfile
-
-# Copy application code
-COPY --chown=apiuser:apigroup api api
-
 # Environment variables
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
+ENV PIPENV_PIPFILE=Pipfile.api
+
+# Install dependencies without --system
+RUN pipenv install --deploy --ignore-pipfile
+
+# Copy application code
+COPY --chown=apiuser:apigroup api api
 
 # Expose port
 EXPOSE 4567

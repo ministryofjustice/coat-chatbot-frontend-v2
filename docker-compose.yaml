@@ -23,3 +23,18 @@ services:
       LOGGING_LEVEL: "DEBUG"
     ports:
       - "4567:4567"
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile.api
+    image: "coat-chatbot-api"
+    container_name: "coat-chatbot-api"
+    environment:
+      # Flask
+      APP_SECRET_KEY: dev
+      FLASK_DEBUG: true
+
+      # App
+      LOGGING_LEVEL: "DEBUG"
+    ports:
+      - "8080:4567"

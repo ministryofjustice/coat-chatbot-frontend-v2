@@ -22,10 +22,7 @@ def create_app(is_rate_limit_enabled=True) -> Flask:
     app.secret_key = app_config.flask.app_secret_key
 
     configure_routes(app)
-    configure_error_handlers(app)
-    configure_sentry(app_config.sentry.dsn_key, app_config.sentry.environment)
     configure_limiter(app, is_rate_limit_enabled)
-    configure_jinja(app)
     configure_cors(app)
 
     logger.info("Running app...")
